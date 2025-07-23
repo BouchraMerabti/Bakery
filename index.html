@@ -1,0 +1,548 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bouchras drömmar - Home-baked Cookies & French Pastries</title>
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Font Awesome CDN -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=Montserrat:wght@300;400;500;700&display=swap" rel="stylesheet">
+    <!-- Link to your custom CSS file -->
+    <link rel="stylesheet" href="style.css">
+</head>
+<body class="bg-primary-bg text-text-dark font-montserrat">
+
+    <nav class="bg-primary-bg shadow-md py-4 px-6 md:px-12 flex justify-between items-center fixed w-full z-10 rounded-b-lg top-0">
+        <div class="flex items-center">
+            <span class="text-2xl font-playfair font-bold text-text-dark">Bouchras drömmar</span>
+        </div>
+        <div class="hidden md:flex items-center space-x-8">
+            <a href="#home" class="text-text-dark hover:text-accent-pink transition duration-300">Home</a>
+            <a href="#products" class="text-text-dark hover:text-accent-pink transition duration-300">Products</a>
+            <a href="#how-to-order" class="text-text-dark hover:text-accent-pink transition duration-300">How to Order</a>
+            <a href="#about" class="text-text-dark hover:text-accent-pink transition duration-300">About Us</a>
+            <a href="#contact" class="text-text-dark hover:text-accent-pink transition duration-300">Contact</a>
+            <!-- Shopping Cart Icon -->
+            <button class="toggle-cart bg-accent-pink text-white p-2 rounded-full shadow-lg hover:bg-text-dark transition duration-300 relative flex items-center">
+                <i class="fas fa-shopping-cart text-lg"></i>
+                <span id="cart-count" class="absolute -top-2 -right-2 bg-text-dark text-white rounded-full w-5 h-5 flex items-center justify-center text-xs" style="display: none;">0</span>
+            </button>
+        </div>
+        <!-- Mobile Menu Button -->
+        <div class="md:hidden flex items-center space-x-4">
+            <!-- Shopping Cart Icon for Mobile -->
+            <button class="toggle-cart bg-accent-pink text-white p-2 rounded-full shadow-lg hover:bg-text-dark transition duration-300 relative">
+                <i class="fas fa-shopping-cart text-lg"></i>
+                <span id="cart-count-mobile" class="absolute -top-2 -right-2 bg-text-dark text-white rounded-full w-5 h-5 flex items-center justify-center text-xs" style="display: none;">0</span>
+            </button>
+            <button id="mobile-menu-button" class="text-text-dark focus:outline-none">
+                <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path>
+                </svg>
+            </button>
+        </div>
+    </nav>
+
+    <div id="mobile-menu" class="fixed inset-0 bg-primary-bg bg-opacity-95 z-40 hidden md:hidden flex-col items-center justify-center space-y-6 text-xl font-playfair">
+        <button id="close-mobile-menu" class="absolute top-6 right-6 text-text-dark focus:outline-none">
+            <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path>
+            </svg>
+        </button>
+        <a href="#home" class="text-text-dark hover:text-accent-pink transition duration-300 mobile-menu-link">Home</a>
+        <a href="#products" class="text-text-dark hover:text-accent-pink transition duration-300 mobile-menu-link">Products</a>
+        <a href="#how-to-order" class="text-text-dark hover:text-accent-pink transition duration-300 mobile-menu-link">How to Order</a>
+        <a href="#about" class="text-text-dark hover:text-accent-pink transition duration-300 mobile-menu-link">About Us</a>
+        <a href="#contact" class="text-text-dark hover:text-accent-pink transition duration-300 mobile-menu-link">Contact</a>
+    </div>
+
+    <!-- Hero Section -->
+    <section id="home" class="relative h-screen flex items-center justify-center text-center overflow-hidden">
+        <!-- NOTE: Removed pt-16 from here. The body padding-top (from style.css) should handle the offset for the fixed navbar on initial load.
+             The flex items-center justify-center will center your content within the h-screen.
+             If you find the hero content too high, you can add padding back or adjust body padding. -->
+        <img src="images/WhatsApp Image 2025-05-31 at 17.56.34 (1).jpeg" alt="Beautiful assortment of Bouchra's baked goods" class="absolute inset-0 w-full h-full object-cover z-0">
+        <!-- Suggestion: Replace placeholder.co with one of your actual hero-worthy images -->
+        <div class="absolute inset-0 bg-text-dark opacity-40 z-1"></div>
+
+        <div class="relative z-20 p-8 max-w-4xl mx-auto bg-primary-bg bg-opacity-80 rounded-lg shadow-xl animate-fade-in">
+            <h1 class="text-5xl md:text-7xl font-playfair font-bold text-text-dark mb-4 leading-tight">
+                Taste the Dream.
+            </h1>
+            <p class="text-xl md:text-2xl text-text-dark mb-8 font-montserrat">
+                Exquisite Home-baked Cookies & French Pastries, Crafted with Love.
+            </p>
+            <a href="#products" class="inline-block bg-accent-pink text-primary-bg font-montserrat font-semibold py-3 px-8 rounded-full shadow-lg hover:bg-text-dark hover:text-primary-bg transition duration-300 transform hover:scale-105">
+                Explore Our Delights
+            </a>
+        </div>
+    </section>
+
+    <!-- Sweet Mission Section -->
+    <section class="py-16 px-6 md:px-12 text-center bg-primary-bg">
+        <div class="max-w-3xl mx-auto">
+            <h2 class="text-3xl md:text-4xl font-playfair font-bold text-text-dark mb-6">Our Sweet Mission</h2>
+            <p class="text-lg md:text-xl text-text-dark leading-relaxed">
+                At <span class="font-playfair font-bold text-accent-pink">Bouchras drömmar</span>, we craft exquisite home-baked cookies and French pastries, blending traditional techniques with heartfelt passion to deliver moments of warmth and unparalleled artisanal delight.
+            </p>
+        </div>
+    </section>
+
+    <!-- Products Section -->
+    <section id="products" class="py-16 px-6 md:px-12 bg-primary-bg">
+        <h2 class="text-4xl font-playfair font-bold text-text-dark text-center mb-12">Our Artisanal Creations</h2>
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 max-w-6xl mx-auto">
+
+            <!-- Product Card: Fruit Tarte -->
+            <div class="bg-primary-bg rounded-xl shadow-lg overflow-hidden border border-accent-pink hover:shadow-xl transition-all duration-300 transform hover:-translate-y-1 product-card">
+                <img src="images/WhatsApp Image 2025-05-31 at 15.45.42.jpeg" alt="Fruit Tarte with assorted fruits" class="w-full h-64 object-cover">
+                <div class="p-6">
+                    <h3 class="text-2xl font-playfair font-semibold text-text-dark mb-2">Fruit Tarte</h3>
+                    <p class="text-text-dark text-opacity-80 mb-4">
+                        A delightful Tarte featuring a perfectly crisp, buttery almond crust, generously filled with a rich and smooth diplomat cream, and beautifully crowned with an abundance of fresh, vibrant assorted fruits.
+                    </p>
+                    <div class="flex justify-between items-center">
+                        <span class="text-xl font-bold text-accent-pink">190 SEK</span>
+                        <div class="flex items-center space-x-2">
+                            <input type="number" min="1" value="1" class="quantity-input w-16 px-2 py-1 border border-accent-pink rounded text-center">
+                            <button data-product-id="fruit-tarte" class="bg-[#5C3D2E] text-white font-montserrat py-2 px-5 rounded-full hover:bg-accent-pink transition duration-300 flex items-center gap-2 whitespace-nowrap">
+                                <i class="fas fa-shopping-cart text-lg"></i>
+                                <span>Add to Cart</span>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Product Card: Strawberry Tarte -->
+            <div class="bg-primary-bg rounded-xl shadow-lg overflow-hidden border border-accent-pink hover:shadow-xl transition-all duration-300 transform hover:-translate-y-1 product-card">
+                <img src="images/WhatsApp Image 2025-05-31 at 17.56.37.jpeg" alt="Strawberry Tarte" class="w-full h-64 object-cover">
+                <div class="p-6">
+                    <h3 class="text-2xl font-playfair font-semibold text-text-dark mb-2">Strawberry Tarte</h3>
+                    <p class="text-text-dark text-opacity-80 mb-4">
+                        A delightful Strawberry Tarte featuring a perfectly crisp, buttery almond crust, generously filled with a rich and smooth diplomat cream, and beautifully crowned with an abundance of fresh, vibrant strawberries.
+                    </p>
+                    <div class="flex justify-between items-center">
+                        <span class="text-xl font-bold text-accent-pink">190 SEK</span>
+                        <div class="flex items-center space-x-2">
+                            <input type="number" min="1" value="1" class="quantity-input w-16 px-2 py-1 border border-accent-pink rounded text-center">
+                            <button data-product-id="strawberry-tarte" class="bg-[#5C3D2E] text-white font-montserrat py-2 px-5 rounded-full hover:bg-accent-pink transition duration-300 flex items-center gap-2 whitespace-nowrap">
+                                <i class="fas fa-shopping-cart text-lg"></i>
+                                <span>Add to Cart</span>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Product Card: Tartelette -->
+            <div class="bg-primary-bg rounded-xl shadow-lg overflow-hidden border border-accent-pink hover:shadow-xl transition-all duration-300 transform hover:-translate-y-1 product-card">
+                <img src="images/WhatsApp Image 2025-05-31 at 17.56.41.jpeg" alt="Tartelette with fruit" class="w-full h-64 object-cover"> <!-- Assuming this is a general fruit tartelette image -->
+                <div class="p-6">
+                    <h3 class="text-2xl font-playfair font-semibold text-text-dark mb-2">Tartelette</h3>
+                    <p class="text-text-dark text-opacity-80 mb-4">
+                        A delicate and exquisite mini tart, featuring a perfectly crisp almond crust filled with luscious diplomat cream, elegantly adorned with a medley of fresh, vibrant fruits. A bite-sized burst of fresh flavor and texture!
+                    </p>
+                    <div class="flex justify-between items-center">
+                        <span class="text-xl font-bold text-accent-pink">35 SEK / pc</span>
+                        <div class="flex items-center space-x-2">
+                            <input type="number" min="1" value="1" class="quantity-input w-16 px-2 py-1 border border-accent-pink rounded text-center">
+                            <button data-product-id="tartelette" class="bg-[#5C3D2E] text-white font-montserrat py-2 px-5 rounded-full hover:bg-accent-pink transition duration-300 flex items-center gap-2 whitespace-nowrap">
+                                <i class="fas fa-shopping-cart text-lg"></i>
+                                <span>Add to Cart</span>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Product Card: Lemon Tart -->
+            <div class="bg-primary-bg rounded-xl shadow-lg overflow-hidden border border-accent-pink hover:shadow-xl transition-all duration-300 transform hover:-translate-y-1 product-card">
+                <img src="images/WhatsApp Image 2025-05-31 at 17.56.41 (1).jpeg" alt="Lemon Tart with meringue" class="w-full h-64 object-cover">
+                <div class="p-6">
+                    <h3 class="text-2xl font-playfair font-semibold text-text-dark mb-2">Lemon Tart</h3>
+                    <p class="text-text-dark text-opacity-80 mb-4">
+                        A crisp, buttery almond tart shell filled with silky, tangy lemon custard, topped with light, toasted meringue.
+                    </p>
+                    <div class="flex justify-between items-center">
+                        <span class="text-xl font-bold text-accent-pink">55 SEK / pc</span>
+                        <div class="flex items-center space-x-2">
+                            <input type="number" min="1" value="1" class="quantity-input w-16 px-2 py-1 border border-accent-pink rounded text-center">
+                            <button data-product-id="lemon-tart" class="bg-[#5C3D2E] text-white font-montserrat py-2 px-5 rounded-full hover:bg-accent-pink transition duration-300 flex items-center gap-2 whitespace-nowrap">
+                                <i class="fas fa-shopping-cart text-lg"></i>
+                                <span>Add to Cart</span>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Product Card: Mini éclairs box -->
+            <div class="bg-primary-bg rounded-xl shadow-lg overflow-hidden border border-accent-pink hover:shadow-xl transition-all duration-300 transform hover:-translate-y-1 product-card">
+                <img src="images/WhatsApp Image 2025-05-31 at 19.06.16.jpeg" alt="Box of Mini Eclairs" class="w-full h-64 object-cover">
+                <div class="p-6">
+                    <h3 class="text-2xl font-playfair font-semibold text-text-dark mb-2">Mini Éclairs Box</h3>
+                    <p class="text-text-dark text-opacity-80 mb-4">
+                        A delightful box containing 30 assorted mini éclairs, perfect for sharing or indulging.
+                    </p>
+                    <div class="flex justify-between items-center">
+                        <span class="text-xl font-bold text-accent-pink">300 SEK</span>
+                        <div class="flex items-center space-x-2">
+                            <input type="number" min="1" value="1" class="quantity-input w-16 px-2 py-1 border border-accent-pink rounded text-center">
+                            <button data-product-id="mini-eclairs-box" class="bg-[#5C3D2E] text-white font-montserrat py-2 px-5 rounded-full hover:bg-accent-pink transition duration-300 flex items-center gap-2 whitespace-nowrap">
+                                <i class="fas fa-shopping-cart text-lg"></i>
+                                <span>Add to Cart</span>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Product Card: Faux Macarons -->
+            <div class="bg-primary-bg rounded-xl shadow-lg overflow-hidden border border-accent-pink hover:shadow-xl transition-all duration-300 transform hover:-translate-y-1 product-card">
+                <img src="images/WhatsApp Image 2025-05-31 at 17.56.34.jpeg" alt="Faux Macarons coated in chocolate" class="w-full h-64 object-cover">
+                <div class="p-6">
+                    <h3 class="text-2xl font-playfair font-semibold text-text-dark mb-2">Faux Macarons</h3>
+                    <p class="text-text-dark text-opacity-80 mb-4">
+                        Our faux macarons are a unique twist on the classic treat! Made with buttery hazelnut sablé cookies and filled with rich caramel ganache, then coated in smooth milk and white chocolate for the perfect crunch.
+                    </p>
+                    <div class="flex justify-between items-center">
+                        <span class="text-xl font-bold text-accent-pink">25 SEK / pc</span>
+                        <div class="flex items-center space-x-2">
+                            <input type="number" min="1" value="1" class="quantity-input w-16 px-2 py-1 border border-accent-pink rounded text-center">
+                            <button data-product-id="faux-macarons" class="bg-[#5C3D2E] text-white font-montserrat py-2 px-5 rounded-full hover:bg-accent-pink transition duration-300 flex items-center gap-2 whitespace-nowrap">
+                                <i class="fas fa-shopping-cart text-lg"></i>
+                                <span>Add to Cart</span>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Product Card: Makroud Nakach -->
+            <div class="bg-primary-bg rounded-xl shadow-lg overflow-hidden border border-accent-pink hover:shadow-xl transition-all duration-300 transform hover:-translate-y-1 product-card">
+                <img src="images/WhatsApp Image 2025-03-20 at 13.34.36 (1).jpeg" alt="Makroud Nakach date pastry" class="w-full h-64 object-cover">
+                <div class="p-6">
+                    <h3 class="text-2xl font-playfair font-semibold text-text-dark mb-2">Makroud Nakach</h3>
+                    <p class="text-text-dark text-opacity-80 mb-4">
+                        A delicious pastry made with semolina dough, filled with sweet date paste, and beautifully decorated with traditional hand-carved patterns for the perfect melt-in-your-mouth experience!
+                    </p>
+                    <div class="flex justify-between items-center">
+                        <span class="text-xl font-bold text-accent-pink">300 SEK / kg</span>
+                        <div class="flex items-center space-x-2">
+                            <input type="number" min="1" value="1" class="quantity-input w-16 px-2 py-1 border border-accent-pink rounded text-center">
+                            <button data-product-id="makroud-nakach" class="bg-[#5C3D2E] text-white font-montserrat py-2 px-5 rounded-full hover:bg-accent-pink transition duration-300 flex items-center gap-2 whitespace-nowrap">
+                                <i class="fas fa-shopping-cart text-lg"></i>
+                                <span>Add to Cart</span>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Product Card: Mchewek El Bey -->
+            <div class="bg-primary-bg rounded-xl shadow-lg overflow-hidden border border-accent-pink hover:shadow-xl transition-all duration-300 transform hover:-translate-y-1 product-card">
+                <img src="images/WhatsApp Image 2025-05-31 at 17.56.38.jpeg" alt="Mchewek El Bey pistachio almond pastry" class="w-full h-64 object-cover">
+                <div class="p-6">
+                    <h3 class="text-2xl font-playfair font-semibold text-text-dark mb-2">Mchewek El Bey</h3>
+                    <p class="text-text-dark text-opacity-80 mb-4">
+                        Mchewek El Bey with layers of richness – pistachio dough inside almond, coated in crunchy pistachios.
+                    </p>
+                    <div class="flex justify-between items-center">
+                        <span class="text-xl font-bold text-accent-pink">20 SEK / pc</span>
+                        <div class="flex items-center space-x-2">
+                            <input type="number" min="1" value="1" class="quantity-input w-16 px-2 py-1 border border-accent-pink rounded text-center">
+                            <button data-product-id="mchewek-el-bey" class="bg-[#5C3D2E] text-white font-montserrat py-2 px-5 rounded-full hover:bg-accent-pink transition duration-300 flex items-center gap-2 whitespace-nowrap">
+                                <i class="fas fa-shopping-cart text-lg"></i>
+                                <span>Add to Cart</span>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Product Card: Tcharek El M'saker -->
+            <div class="bg-primary-bg rounded-xl shadow-lg overflow-hidden border border-accent-pink hover:shadow-xl transition-all duration-300 transform hover:-translate-y-1 product-card">
+                <img src="images/WhatsApp Image 2025-05-31 at 17.56.35 (1).jpeg" alt="Tcharek El M'saker almond pastry" class="w-full h-64 object-cover">
+                <div class="p-6">
+                    <h3 class="text-2xl font-playfair font-semibold text-text-dark mb-2">Tcharek El M'saker</h3>
+                    <p class="text-text-dark text-opacity-80 mb-4">
+                        A Sweet Algerian Delight! Indulge in the rich flavors of our homemade Tcharek El M'saker, a traditional almond-filled pastry, delicately coated in powdered sugar for the perfect melt-in-your-mouth experience!
+                    </p>
+                    <div class="flex justify-between items-center">
+                        <span class="text-xl font-bold text-accent-pink">35 SEK / pc</span>
+                        <div class="flex items-center space-x-2">
+                            <input type="number" min="1" value="1" class="quantity-input w-16 px-2 py-1 border border-accent-pink rounded text-center">
+                            <button data-product-id="tcharek-el-msaker" class="bg-[#5C3D2E] text-white font-montserrat py-2 px-5 rounded-full hover:bg-accent-pink transition duration-300 flex items-center gap-2 whitespace-nowrap">
+                                <i class="fas fa-shopping-cart text-lg"></i>
+                                <span>Add to Cart</span>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Product Card: Tcharek El Aryan -->
+            <div class="bg-primary-bg rounded-xl shadow-lg overflow-hidden border border-accent-pink hover:shadow-xl transition-all duration-300 transform hover:-translate-y-1 product-card">
+                <img src="images/WhatsApp Image 2025-03-20 at 13.34.37 (1).jpeg" alt="Tcharek El Aryan peanut filled cookie" class="w-full h-64 object-cover">
+                <div class="p-6">
+                    <h3 class="text-2xl font-playfair font-semibold text-text-dark mb-2">Tcharek El Aryan</h3>
+                    <p class="text-text-dark text-opacity-80 mb-4">
+                        A traditional Algerian crescent-shaped cookie made with soft dough and filled with a rich peanut mixture.
+                    </p>
+                    <div class="flex justify-between items-center">
+                        <span class="text-xl font-bold text-accent-pink">30 SEK / pc</span>
+                        <div class="flex items-center space-x-2">
+                            <input type="number" min="1" value="1" class="quantity-input w-16 px-2 py-1 border border-accent-pink rounded text-center">
+                            <button data-product-id="tcharek-el-aryan" class="bg-[#5C3D2E] text-white font-montserrat py-2 px-5 rounded-full hover:bg-accent-pink transition duration-300 flex items-center gap-2 whitespace-nowrap">
+                                <i class="fas fa-shopping-cart text-lg"></i>
+                                <span>Add to Cart</span>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Product Card: Mchekla -->
+            <div class="bg-primary-bg rounded-xl shadow-lg overflow-hidden border border-accent-pink hover:shadow-xl transition-all duration-300 transform hover:-translate-y-1 product-card">
+                <!-- IMPORTANT: Replace with the correct image for Mchekla -->
+                <img src="images/WhatsApp Image 2025-03-20 at 13.34.37.jpeg" alt="Mchekla Algerian nut pastry" class="w-full h-64 object-cover">
+                <div class="p-6">
+                    <h3 class="text-2xl font-playfair font-semibold text-text-dark mb-2">Mchekla</h3>
+                    <p class="text-text-dark text-opacity-80 mb-4">
+                        A traditional Algerian delicacy, Mchakla is made with a delicious blend of almonds and walnuts, topped with a beautiful selection of nuts for the perfect crunch.
+                    </p>
+                    <div class="flex justify-between items-center">
+                        <span class="text-xl font-bold text-accent-pink">25 SEK / pc</span>
+                        <div class="flex items-center space-x-2">
+                            <input type="number" min="1" value="1" class="quantity-input w-16 px-2 py-1 border border-accent-pink rounded text-center">
+                            <button data-product-id="mchekla" class="bg-[#5C3D2E] text-white font-montserrat py-2 px-5 rounded-full hover:bg-accent-pink transition duration-300 flex items-center gap-2 whitespace-nowrap">
+                                <i class="fas fa-shopping-cart text-lg"></i>
+                                <span>Add to Cart</span>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Add more product cards here if you have them -->
+
+        </div>
+        <div class="text-center mt-12">
+            <a href="#contact" class="inline-block bg-text-dark text-primary-bg font-montserrat font-semibold py-3 px-8 rounded-full shadow-lg hover:bg-accent-pink hover:text-primary-bg transition duration-300 transform hover:scale-105">
+                Place Your Order
+            </a>
+        </div>
+    </section>
+
+    <!-- How to Order Section -->
+    <section id="how-to-order" class="py-16 px-6 md:px-12 bg-primary-bg text-text-dark">
+        <div class="max-w-4xl mx-auto">
+            <h2 class="text-4xl font-playfair font-bold text-center mb-12">How to Order from Bouchras drömmar</h2>
+            <div class="bg-primary-bg p-8 rounded-xl shadow-lg border border-accent-pink space-y-8">
+
+                <div>
+                    <h3 class="text-2xl font-playfair font-semibold mb-4">1. Explore Our Delicious Menu</h3>
+                    <p class="text-lg leading-relaxed">
+                        Begin your sweet journey by browsing our full selection of artisanal cookies and exquisite French pastries on our <a href="#products" class="text-accent-pink hover:underline font-bold">Our Artisanal Creations</a> section. Discover detailed descriptions, tempting photos, and pricing for each delightful item.
+                    </p>
+                </div>
+
+                <div>
+                    <h3 class="text-2xl font-playfair font-semibold mb-4">2. Place Your Order</h3>
+                    <p class="text-lg leading-relaxed mb-4">
+                        Ready to indulge? You can place your order easily by email or phone:
+                    </p>
+                    <ul class="list-disc list-inside text-lg space-y-2 ml-4">
+                        <li>
+                            <strong>By Email:</strong> Send us an email at <a href="mailto:bouchrasdrommar@gmail.com" class="text-accent-pink hover:underline font-bold">bouchrasdrommar@gmail.com</a>. Please include:
+                            <ul class="list-circle list-inside ml-6 mt-1">
+                                <li>Your desired items and quantities.</li>
+                                <li>Your preferred pickup or delivery date.</li>
+                                <li>Any special requests or dietary considerations.</li>
+                            </ul>
+                        </li>
+                        <li>
+                            <strong>By Phone:</strong> Give us a call at <a href="tel:+46739762667" class="text-accent-pink hover:underline font-bold">0739762667</a>. We're happy to assist you with your order and answer any questions.
+                        </li>
+                    </ul>
+                </div>
+
+                <div>
+                    <h3 class="text-2xl font-playfair font-semibold mb-4">3. Lead Time Required</h3>
+                    <p class="text-lg leading-relaxed">
+                        To ensure the freshest and highest quality, we kindly request a <strong>minimum of 72 hours notice</strong> for all orders. For larger orders or custom requests, please contact us as early as possible to discuss arrangements.
+                    </p>
+                </div>
+
+                <div>
+                    <h3 class="text-2xl font-playfair font-semibold mb-4">4. Payment Methods</h3>
+                    <p class="text-lg leading-relaxed">
+                        We accept the following secure payment methods:
+                    </p>
+                    <ul class="list-disc list-inside text-lg space-y-2 ml-4">
+                        <li><strong>Swish:</strong> (For customers in Sweden)</li>
+                        <li><strong>Bank Transfer:</strong> Details will be provided upon order confirmation.</li>
+                    </ul>
+                </div>
+
+                <div>
+                    <h3 class="text-2xl font-playfair font-semibold mb-4">5. Pickup & Delivery Options</h3>
+                    <p class="text-lg leading-relaxed mb-4">
+                        Choose the option that works best for you:
+                    </p>
+                    <ul class="list-disc list-inside text-lg space-y-2 ml-4">
+                        <li>
+                            <strong>Local Pickup (Malmö):</strong> Collect your freshly baked treats directly from our home kitchen in Malmö. We will confirm the exact address and available pickup times when you place your order.
+                        </li>
+                        <li>
+                            <strong>Nationwide Dry Cookie Delivery (Sweden):</strong> We are delighted to offer delivery of our dry cookies to all of Sweden! A delivery fee will apply based on your location. Please inquire about delivery costs when placing your order.
+                        </li>
+                        <li>
+                            <em>Please note: Fresh pastries and delicate items are currently only available for local pickup in Malmö to ensure their quality upon arrival.</em>
+                        </li>
+                    </ul>
+                </div>
+
+                <div class="text-center mt-8">
+                    <p class="text-xl font-semibold">
+                        We look forward to baking for you!
+                    </p>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section id="about" class="py-16 px-6 md:px-12 bg-accent-pink text-primary-bg">
+        <div class="max-w-4xl mx-auto text-center">
+            <h2 class="text-4xl font-playfair font-bold mb-6">Bouchra's Dream: Baked with Love, A Taste of Home</h2>
+            <p class="text-lg md:text-xl leading-relaxed mb-6">
+                From a young age, the kitchen was my sanctuary, a place where flour, butter, and sugar transformed into pure magic. What started as a childhood fascination quickly blossomed into a profound passion for baking, especially for the intricate artistry of French patisserie. "Bouchras drömmar," meaning Bouchra's Dreams, is truly a realization of that lifelong dream.
+            </p>
+            <p class="text-lg md:text-xl leading-relaxed mb-6">
+                My journey into the world of French baking involved countless hours of learning, experimenting, and perfecting techniques passed down through generations. I've dedicated myself to understanding the delicate balance that creates that perfect flaky croissant or that melt-in-your-mouth macaron. Each recipe is approached with reverence for tradition, yet infused with my own personal touch and creativity.
+            </p>
+            <p class="text-lg md:text-xl leading-relaxed">
+                What truly sets Bouchras drömmar apart is our unwavering commitment to quality. We meticulously select only the finest ingredients – from rich, pure butter to premium chocolates and fresh, local produce whenever possible. Every cookie, every pastry, is baked in small batches with genuine care and attention to detail, ensuring that when you taste a "Bouchras drömmar" creation, you're not just enjoying a treat, but experiencing a piece of heartfelt joy. Thank you for being a part of my dream!
+            </p>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="py-16 px-6 md:px-12 bg-primary-bg">
+        <h2 class="text-4xl font-playfair font-bold text-text-dark text-center mb-12">Get in Touch & Order</h2>
+        <div class="max-w-3xl mx-auto bg-primary-bg p-8 rounded-xl shadow-lg border border-accent-pink">
+            <p class="text-lg text-text-dark mb-6 text-center">
+                Ready to indulge in Bouchras drömmar? Fill out the form below to place your order or inquire about custom requests.
+            </p>
+            <form action="https://formspree.io/f/bouchrasdrommar@gmail.com" method="POST" class="space-y-6">
+                <div>
+                    <label for="name" class="block text-text-dark text-lg font-montserrat mb-2">Name *</label>
+                    <input type="text" id="name" name="name" required class="w-full p-3 rounded-md border border-accent-pink focus:ring-2 focus:ring-accent-gold focus:outline-none bg-primary-bg text-text-dark" placeholder="Your Name">
+                </div>
+                <div>
+                    <label for="email" class="block text-text-dark text-lg font-montserrat mb-2">Email *</label>
+                    <input type="email" id="email" name="_replyto" required class="w-full p-3 rounded-md border border-accent-pink focus:ring-2 focus:ring-accent-gold focus:outline-none bg-primary-bg text-text-dark" placeholder="your.email@example.com">
+                </div>
+                <div>
+                    <label for="phone" class="block text-text-dark text-lg font-montserrat mb-2">Phone Number</label>
+                    <input type="tel" id="phone" name="phone" class="w-full p-3 rounded-md border border-accent-pink focus:ring-2 focus:ring-accent-gold focus:outline-none bg-primary-bg text-text-dark" placeholder="Your Phone Number">
+                </div>
+                <div>
+                    <label for="orderType" class="block text-text-dark text-lg font-montserrat mb-2">Order Type *</label>
+                    <select id="orderType" name="orderType" required class="w-full p-3 rounded-md border border-accent-pink focus:ring-2 focus:ring-accent-gold focus:outline-none bg-primary-bg text-text-dark">
+                        <option value="">Select Order Type</option>
+                        <option value="pickup">Local Pickup (Malmö)</option>
+                        <option value="delivery">Delivery (Dry Cookies Only)</option>
+                    </select>
+                </div>
+                <div>
+                    <label for="preferredDate" class="block text-text-dark text-lg font-montserrat mb-2">Preferred Pickup/Delivery Date *</label>
+                    <input type="date" id="preferredDate" name="preferredDate" required class="w-full p-3 rounded-md border border-accent-pink focus:ring-2 focus:ring-accent-gold focus:outline-none bg-primary-bg text-text-dark">
+                </div>
+                <div>
+                    <label for="cartItems" class="block text-text-dark text-lg font-montserrat mb-2">Your Order *</label>
+                    <textarea id="cartItems" name="cartItems" rows="4" required class="w-full p-3 rounded-md border border-accent-pink focus:ring-2 focus:ring-accent-gold focus:outline-none bg-primary-bg text-text-dark" placeholder="Please list the items you'd like to order with quantities"></textarea>
+                </div>
+                <div>
+                    <label for="message" class="block text-text-dark text-lg font-montserrat mb-2">Additional Notes</label>
+                    <textarea id="message" name="message" rows="3" class="w-full p-3 rounded-md border border-accent-pink focus:ring-2 focus:ring-accent-gold focus:outline-none bg-primary-bg text-text-dark" placeholder="Any special requests, dietary requirements, or other notes?"></textarea>
+                </div>
+                <!-- Hidden fields for form handling -->
+                <input type="hidden" name="_subject" value="New Order from Bouchras drömmar Website">
+                <input type="text" name="_gotcha" style="display:none">
+                <div class="text-center">
+                    <button type="submit" class="bg-accent-pink text-primary-bg font-montserrat font-semibold py-3 px-8 rounded-full shadow-lg hover:bg-text-dark hover:text-primary-bg transition duration-300 transform hover:scale-105">
+                        Submit Order
+                    </button>
+                </div>
+            </form>
+            <p class="text-center text-text-dark text-opacity-80 mt-8">
+                You can also reach us directly at: <br>
+                Email: <a href="mailto:bouchrasdrommar@gmail.com" class="text-accent-pink hover:underline">bouchrasdrommar@gmail.com</a> <br>
+                Phone: <a href="tel:+46739762667" class="text-accent-pink hover:underline">0739762667</a> <br>
+                <strong>Pickup Address:</strong> Malmö (Full address provided upon order confirmation)
+            </p>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-text-dark text-primary-bg py-8 px-6 md:px-12 text-center rounded-t-lg">
+        <p class="mb-4">© <span id="currentYear"></span> Bouchras drömmar. All rights reserved.</p>
+        <div class="flex justify-center space-x-6">
+            <a href="https://www.instagram.com/bouchras_drommar/" target="_blank" rel="noopener noreferrer" class="text-primary-bg hover:text-accent-pink transition duration-300" aria-label="Bouchras drömmar on Instagram">
+                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-instagram"><rect width="20" height="20" x="2" y="2" rx="5" ry="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><line x1="17.5" x2="17.5" y1="6.5" y2="6.5"/></svg>
+            </a>
+            <!-- Add your Facebook link if you have one, e.g.,
+            <a href="YOUR_FACEBOOK_URL" target="_blank" rel="noopener noreferrer" class="text-primary-bg hover:text-accent-pink transition duration-300" aria-label="Bouchras drömmar on Facebook">
+                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-facebook"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"/></svg>
+            </a> -->
+            </div>
+    </footer>
+
+    <!-- Link to your JavaScript file -->
+    <script src="script.js"></script>
+    <script>
+        // Small script to update the year in the footer automatically
+        document.getElementById('currentYear').textContent = new Date().getFullYear();
+    </script>
+
+    <!-- Cart Panel -->
+    <div id="cart-panel" class="fixed right-0 top-0 h-full w-96 bg-white shadow-2xl transform translate-x-full transition-transform duration-300 z-[100] overflow-y-auto">
+        <div class="h-full flex flex-col">
+            <div class="p-4 bg-text-dark text-white flex justify-between items-center sticky top-0 z-[101]">
+                <h3 class="text-xl font-playfair font-bold">Your Cart</h3>
+                <div class="flex items-center space-x-4">
+                    <button class="clear-cart text-sm hover:text-accent-pink transition-colors flex items-center">
+                        <i class="fas fa-trash-alt mr-1"></i>
+                        Clear Cart
+                    </button>
+                    <button class="toggle-cart text-2xl hover:text-accent-pink transition-colors">&times;</button>
+                </div>
+            </div>
+            <div id="cart-items" class="flex-grow overflow-y-auto relative z-[102]">
+                <!-- Cart items will be inserted here by JavaScript -->
+            </div>
+            <div class="p-4 border-t border-accent-pink bg-white sticky bottom-0 z-[101]">
+                <div class="flex justify-between items-center mb-4">
+                    <span class="font-playfair font-bold">Total:</span>
+                    <span id="cart-total" class="text-xl font-bold text-accent-pink">0 SEK</span>
+                </div>
+                <a href="#contact" onclick="toggleCart()" class="block w-full bg-accent-pink text-white text-center py-3 rounded-full hover:bg-text-dark transition duration-300">
+                    Proceed to Order
+                </a>
+            </div>
+        </div>
+    </div>
+
+    <!-- Cart Added Notification -->
+    <div id="cart-notification" class="fixed top-24 right-4 bg-accent-pink text-primary-bg px-6 py-3 rounded-lg shadow-lg transform transition-opacity duration-300 opacity-0 z-[103]">
+        Item added to cart!
+    </div>
+</body>
+</html>

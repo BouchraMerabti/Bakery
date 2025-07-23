@@ -1,0 +1,181 @@
+/* Custom Tailwind Colors */
+:root {
+    --color-primary-bg: #FDF8F0; /* Creamy off-white */
+    --color-text-dark: #5C3D2E; /* Rich chocolate brown */
+    --color-accent-pink: #D9B0A3; /* Soft earthy pink */
+    --color-accent-gold: #F8E7B1; /* Subtle gilded gold */
+    --primary-bg: #FFF5F5;
+    --text-dark: #2D3748;
+    --accent-pink: #D9B0A3;
+    --accent-gold: #D69E2E;
+}
+.bg-primary-bg { background-color: var(--color-primary-bg); }
+.text-text-dark { color: var(--color-text-dark); }
+.bg-text-dark { background-color: var(--color-text-dark); }
+.text-accent-pink { color: var(--color-accent-pink); }
+.bg-accent-pink { background-color: var(--color-accent-pink); }
+.text-accent-gold { color: var(--color-accent-gold); }
+.bg-accent-gold { background-color: var(--color-accent-gold); }
+
+/* Custom Fonts */
+.font-playfair { font-family: 'Playfair Display', serif; }
+.font-montserrat { font-family: 'Montserrat', sans-serif; }
+
+/* HTML Element Styling for Scroll Behavior */
+html {
+    scroll-behavior: smooth; /* Ensures smooth scrolling for anchor links */
+    scroll-padding-top: 80px; /* ADJUST THIS VALUE: Offset for fixed header. Should be a bit more than your nav height */
+}
+
+/* General Body Styling */
+body {
+    background-color: var(--color-primary-bg);
+    color: var(--color-text-dark);
+    font-family: 'Montserrat', sans-serif;
+    line-height: 1.6;
+    /* scroll-behavior: smooth; /* Moved to html element for better consistency */
+    padding-top: 64px; /* Height of the fixed navbar */
+}
+
+/* Custom scrollbar for aesthetics */
+::-webkit-scrollbar {
+    width: 8px;
+}
+::-webkit-scrollbar-track {
+    background: var(--color-primary-bg);
+    border-radius: 10px;
+}
+::-webkit-scrollbar-thumb {
+    background: var(--color-accent-pink);
+    border-radius: 10px;
+}
+::-webkit-scrollbar-thumb:hover {
+    background: var(--color-text-dark);
+}
+
+/* Basic animation for hero section text if needed (Tailwind has its own animation utilities too) */
+.animate-fade-in {
+    animation: fadeIn 1s ease-out;
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(20px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+/* Fixed Navigation Bar */
+nav {
+    /* The height is roughly 56px (py-4) + border if any.
+       Setting a min-height can help if content inside changes dynamically */
+    min-height: 72px; /* py-4 is 1rem padding top/bottom, 2rem total. Font size and line height add to this. */
+    /* This min-height helps in determining the scroll-padding-top and body padding-top values */
+}
+
+/* Mobile menu transition (optional, Tailwind handles show/hide with 'hidden') */
+#mobile-menu {
+    transition: opacity 0.3s ease-in-out;
+}
+
+/* Cart styles */
+#cart-panel {
+    box-shadow: -4px 0 15px rgba(0, 0, 0, 0.1);
+    max-height: 100vh;
+    overflow-y: auto;
+}
+
+#cart-items {
+    scrollbar-width: thin;
+    scrollbar-color: var(--accent-pink) var(--primary-bg);
+    max-height: calc(100vh - 160px); /* Account for header and footer */
+    overflow-y: auto;
+}
+
+#cart-items::-webkit-scrollbar {
+    width: 6px;
+}
+
+#cart-items::-webkit-scrollbar-track {
+    background: var(--primary-bg);
+}
+
+#cart-items::-webkit-scrollbar-thumb {
+    background-color: var(--accent-pink);
+    border-radius: 3px;
+}
+
+/* Product card styles */
+.product-card {
+    transition: all 0.3s ease;
+}
+
+.product-card:hover {
+    transform: translateY(-4px);
+}
+
+/* Quantity input styles */
+.quantity-input {
+    -moz-appearance: textfield;
+}
+
+.quantity-input::-webkit-outer-spin-button,
+.quantity-input::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+}
+
+/* Cart notification */
+#cart-notification {
+    transition: opacity 0.3s ease;
+}
+
+/* Animations */
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(-10px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.animate-fade-in {
+    animation: fadeIn 0.5s ease-out;
+}
+
+/* Responsive styles */
+@media (max-width: 768px) {
+    #cart-panel {
+        width: 100%;
+    }
+}
+
+/* Product button styles */
+.product-card button {
+    background-color: #5C3D2E;
+    color: white;
+    font-weight: 500;
+    transition: all 0.3s ease;
+}
+
+.product-card button:hover {
+    background-color: var(--accent-pink);
+    transform: translateY(-2px);
+}
+
+.product-card button i {
+    font-size: 1.1rem;
+}
+
+/* Cart button in header */
+.cart-button {
+    background-color: var(--accent-pink);
+    color: white;
+    transition: all 0.3s ease;
+}
+
+.cart-button:hover {
+    background-color: var(--text-dark);
+    transform: scale(1.05);
+}
