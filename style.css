@@ -23,8 +23,8 @@
 
 /* HTML Element Styling for Scroll Behavior */
 html {
-    scroll-behavior: smooth; /* Ensures smooth scrolling for anchor links */
-    scroll-padding-top: 80px; /* ADJUST THIS VALUE: Offset for fixed header. Should be a bit more than your nav height */
+    scroll-behavior: smooth; 
+    scroll-padding-top: 80px; 
 }
 
 /* General Body Styling */
@@ -33,11 +33,10 @@ body {
     color: var(--color-text-dark);
     font-family: 'Montserrat', sans-serif;
     line-height: 1.6;
-    /* scroll-behavior: smooth; /* Moved to html element for better consistency */
-    padding-top: 64px; /* Height of the fixed navbar */
-}
+   
+    padding-top: 64px; 
 
-/* Custom scrollbar for aesthetics */
+
 ::-webkit-scrollbar {
     width: 8px;
 }
@@ -63,15 +62,13 @@ body {
     to { opacity: 1; transform: translateY(0); }
 }
 
-/* Fixed Navigation Bar */
+
 nav {
-    /* The height is roughly 56px (py-4) + border if any.
-       Setting a min-height can help if content inside changes dynamically */
-    min-height: 72px; /* py-4 is 1rem padding top/bottom, 2rem total. Font size and line height add to this. */
-    /* This min-height helps in determining the scroll-padding-top and body padding-top values */
+    
+    min-height: 72px; 
 }
 
-/* Mobile menu transition (optional, Tailwind handles show/hide with 'hidden') */
+
 #mobile-menu {
     transition: opacity 0.3s ease-in-out;
 }
